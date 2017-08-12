@@ -1,0 +1,66 @@
+<center>  <h1> <u>  new Signup </u> </h1>
+<hr>
+ <%= form_for :article, url: articles_path do |f| %>
+ <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h3>
+        <%= pluralize(@article.errors.count, "error") %> prohibited
+        this page from being saved:
+      </h3>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name ,placeholder: "Enter name", autofocus: true  %>
+  </p>
+ 
+  <p>
+    <%= f.label :email %><br>
+    <%= f.email_field :email, placeholder:"Enter email" %>
+  </p>
+<p>
+    <%= f.label :Re_enter_Email %><br>
+    <%= f.email_field :email_confirmation, placeholder:"Renter email" %>
+  </p>
+
+  <p>
+    <%= f.label :password %><br>
+    <%= f.password_field :password, placeholder:"Enter password" %>
+  </p>
+  <p>
+    <%= f.label :Re_enter_Password %><br>
+    <%= f.password_field :password_confirmation, placeholder:"Renter password" %>
+  </p>
+ 
+ 
+  <p>
+    <%= f.label :dob %><br>
+    <%= f.date_field :dob %>
+  </p>
+  <p>
+    <%= f.label :Phone_No %><br>
+    <%= f.telephone_field :phone,placeholder:"Enter phone" %>
+  </p>
+ <p>
+<%= f.check_box :terms_of_service %> 
+<%= f.label :All_terms_are_Agree %>
+
+   </p>
+  <p>
+    <%= f.submit "Signup", controller: 'articles'  %>
+    <%= link_to 'Back', welcome_index_path %>
+     
+
+   
+  </p></center>
+<% end %>
+
+
+<div class="field_with_errors">
+</div>
