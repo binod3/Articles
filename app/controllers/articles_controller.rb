@@ -22,6 +22,6 @@ end
  
 private
   def article_params
-    params.require(:article).permit(:name, :email, :password, :dob,:phone,:email_confirmation,:password_confirmation,:terms_of_service)
+    params.require(:article).permit(:name, :email, :password, :dob,:phone,:email_confirmation,:password_confirmation,:terms_of_service,:state,:gender)
 	end
 end

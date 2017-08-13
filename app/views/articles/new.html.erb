@@ -43,6 +43,27 @@
     <%= f.label :dob %><br>
     <%= f.date_field :dob %>
   </p>
+
+<p>
+<%= f.label :Select_state %> <br>
+ <select name="Select state">
+ <option selected>--state-- </option>
+ <option> Delhi </option>
+<option> Bihar </option>
+<option> U.P </option>
+<option> West bengal </option>
+<option> Orissa </option>
+</select>
+</p> 
+
+<p>
+<%= f.label :Gender %> <br>
+<%= f.radio_button :gender, 'Male' %> Male   
+<%= f.radio_button :gender, 'Female' %> Female
+
+<%= f.radio_button :gender, 'Other' %> Other
+</p>
+
   <p>
     <%= f.label :Phone_No %><br>
     <%= f.telephone_field :phone,placeholder:"Enter phone" %>
@@ -53,7 +74,7 @@
 
    </p>
   <p>
-    <%= f.submit "Signup", controller: 'articles'  %>
+    <%= f.submit "Signup", 'data-disable-with' => "Please wait..", controller: 'articles'  %>
     <%= link_to 'Back', welcome_index_path %>
      
 

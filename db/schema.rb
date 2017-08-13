@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170812094605) do
+ActiveRecord::Schema.define(version: 20170813053937) do
 
   create_table "articles", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20170812094605) do
     t.string "emailc"
     t.string "password_confirmation"
     t.boolean "terms_of_service"
+    t.string "state"
+    t.string "gender"
   end
 
 end
