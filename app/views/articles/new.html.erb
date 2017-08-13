@@ -1,19 +1,7 @@
 <center>  <h1> <u>  new Signup </u> </h1>
 <hr>
  <%= form_for :article, url: articles_path do |f| %>
- <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h3>
-        <%= pluralize(@article.errors.count, "error") %> prohibited
-        this page from being saved:
-      </h3>
-      <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+
  
   <p>
     <%= f.label :name %><br>
@@ -45,20 +33,15 @@
   </p>
 
 <p>
-<%= f.label :Select_state %> <br>
- <select name="Select state">
- <option selected>--state-- </option>
- <option> Delhi </option>
-<option> Bihar </option>
-<option> U.P </option>
-<option> West bengal </option>
-<option> Orissa </option>
-</select>
+<%= f.label :state %> <br>
+ <%= f.select :state,['Delhi','U.P','West Bengal','Bihar'],
+ :prompt =>'Select State' %>
+ 
 </p> 
 
 <p>
 <%= f.label :Gender %> <br>
-<%= f.radio_button :gender, 'Male' %> Male   
+<%= f.radio_button :gender, 'Male' %> Male
 <%= f.radio_button :gender, 'Female' %> Female
 
 <%= f.radio_button :gender, 'Other' %> Other
@@ -74,14 +57,14 @@
 
    </p>
   <p>
-    <%= f.submit "Signup", 'data-disable-with' => "Please wait..", controller: 'articles'  %>
+    <%= f.submit "Signup", 'data-disable-with' => "Please wait..", controller: 'welcomes'  %>
+    <%= submit_tag("Reset", { :name => 'reset', :id => 'reset_button', :type => "reset" }) %>
     <%= link_to 'Back', welcome_index_path %>
      
 
    
   </p></center>
 <% end %>
-
 
 <div class="field_with_errors">
 </div>
