@@ -1,70 +1,97 @@
-<center>  <h1> <u>  new Signup </u> </h1>
-<hr>
- <%= form_for :article, url: articles_path do |f| %>
-
+  <center>  <h1> <u>  Registration Page</u> </h1>
+	<hr>
+	
+	<tr>
+	<%= form_for :article, url: articles_path do |f| %>
+	<table>
+<% if @article.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
  
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name ,placeholder: "Enter name", autofocus: true  %>
-  </p>
- 
-  <p>
-    <%= f.label :email %><br>
-    <%= f.email_field :email, placeholder:"Enter email" %>
-  </p>
-<p>
-    <%= f.label :Re_enter_Email %><br>
-    <%= f.email_field :email_confirmation, placeholder:"Renter email" %>
-  </p>
-
-  <p>
-    <%= f.label :password %><br>
-    <%= f.password_field :password, placeholder:"Enter password" %>
-  </p>
-  <p>
-    <%= f.label :Re_enter_Password %><br>
-    <%= f.password_field :password_confirmation, placeholder:"Renter password" %>
-  </p>
- 
- 
-  <p>
-    <%= f.label :dob %><br>
-    <%= f.date_field :dob %>
-  </p>
-
-<p>
-<%= f.label :state %> <br>
- <%= f.select :state,['Delhi','U.P','West Bengal','Bihar'],
- :prompt =>'Select State' %>
- 
-</p> 
-
-<p>
-<%= f.label :Gender %> <br>
-<%= f.radio_button :gender, 'Male' %> Male
-<%= f.radio_button :gender, 'Female' %> Female
-
-<%= f.radio_button :gender, 'Other' %> Other
-</p>
-
-  <p>
-    <%= f.label :Phone_No %><br>
-    <%= f.telephone_field :phone,placeholder:"Enter phone" %>
-  </p>
- <p>
-<%= f.check_box :terms_of_service %> 
-<%= f.label :All_terms_are_Agree %>
-
-   </p>
-  <p>
-    <%= f.submit "Signup", 'data-disable-with' => "Please wait..", controller: 'welcomes'  %>
-    <%= submit_tag("Reset", { :name => 'reset', :id => 'reset_button', :type => "reset" }) %>
-    <%= link_to 'Back', welcome_index_path %>
-     
-
-   
-  </p></center>
+    <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
 <% end %>
+	
+	<p>
+		<td><%= f.label :name %> </td> <td>   <%= f.text_field :name ,placeholder: "Enter name", autofocus: true  %> </td>
+	</p>
+	</tr>
+	<tr>
+	<p>
+	<td>	<%= f.label :email %> </td> <td>   <%= f.email_field :email, placeholder:"Enter email" %> </td>
+	</tr>
+	</p>
+	<p>
+	<tr>
+	<td> <%= f.label :email_confirmation %>    </td> <td><%= f.email_field :email_confirmation, placeholder:"Renter email" %> </td>
+	</tr>
+	</p>
+
+	<p>
+	<tr>
+	<td>	<%= f.label :password %>   </td> <td> <%= f.password_field :password, placeholder:"Enter password" %> </td>
+	</tr>
+	</p>
+	<p>
+	<tr>
+		<td> <%= f.label :password_confirmation %>   </td> <td> <%= f.password_field :password_confirmation, placeholder:"Renter password" %> </td>
+		</tr>
+	</p>
+	
+	
+	<p>
+	<tr>
+	<td>	<%= f.label :dob %>  </td> <td>  <%= f.date_field :dob %> </td>
+</tr>	
+<tr>
+<td>
+	
+		<%= f.label :state %> </td> <td>  <%= f.select :state,['Delhi','U.P','West Bengal','Bihar'],
+		:prompt =>'Select State' %> </td>
+		
+		</tr>
+	</p> 
+
+	<p> <tr>
+	<td>
+		<%= f.label :gender %> </td> <td> 
+		<%= f.radio_button :gender, 'Male' %> Male
+		<%= f.radio_button :gender, 'Female' %> Female
+
+		<%= f.radio_button :gender, 'Other' %> Other </td>
+		</tr>
+	</p>
+
+	<p>
+	<tr>
+		<td> <%= f.label :phone %>   </td> <td>  <%= f.telephone_field :phone,placeholder:"Enter phone" %> </td> </tr>
+	</p>
+	<p> <tr>
+	<td>
+		<%= f.check_box :terms_of_service %> </td>
+		<td> <%= f.label :All_terms_are_Agree %>
+     </td>
+     </tr> 
+	</p>
+	</table>
+	
+	<p> 
+		 <%= f.submit "Signup", 'data-disable-with' => "Please wait..", controller: 'welcomes'  %> 
+		 <%= submit_tag("Reset", { :name => 'reset', :id => 'reset_button', :type => "reset" }) %> </center>
+		&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Back', welcome_index_path %> 
+		
+		
+
+		
+	</p>
+
+	<% end %>
 
 <div class="field_with_errors">
+ 
 </div>
+

@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-	validates :name, presence: true, length:{ minimum: 3}, format: { with: /\A[a-zA-Z_]+(?: [a-zA-Z_]+)+(?: [a-zA-Z_]+)?\z/,
+	validates :name, presence: true, length:{ minimum: 3}, format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/,
     message: "only allows letters" }
      validates :password, confirmation: true, length: { in: 6..20 }, presence: true,format: { with: /\A^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}\z/, message: " Minimum characters, at least one uppercase letter, one lowercase letter, one number and one special character  " }
      validates :password_confirmation, presence: true
